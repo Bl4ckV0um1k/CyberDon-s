@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Don's – Secure. Recover. Protect.</title>
+<meta name="description" content="Cyber Don's is Bangladesh's premier cyber security and Facebook/social media account recovery agency. Expert protection, ethical hacking, and digital risk analysis.">
+<meta name="keywords" content="Cyber Security Expert, Facebook Recovery Service, Account Hacking Solution, Cyber Protection Agency, Bangladesh Cyber Security">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --neon-blue: #00f0ff;
+    --neon-green: #00ff88;
+    --neon-purple: #bf00ff;
+    --dark-bg: #030810;
+    --dark-surface: #060f1e;
+    --dark-card: #0a1628;
+    --dark-border: #0e2040;
+    --grid-line: rgba(0,240,255,0.04);
+    --text-primary: #e8f4ff;
+    --text-secondary: #7ba8c4;
+    --text-muted: #3d6080;
+    --glow-blue: 0 0 20px rgba(0,240,255,0.4), 0 0 40px rgba(0,240,255,0.15);
+    --glow-green: 0 0 20px rgba(0,255,136,0.4), 0 0 40px rgba(0,255,136,0.15);
+    --glow-sm: 0 0 8px rgba(0,240,255,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* Animated grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Scanning line effect */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+    animation: scanline 6s linear infinite;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  @keyframes scanline {
+    0% { top: -2px; }
+    100% { top: 100vh; }
+  }
+
+  /* Navbar */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 1rem 4%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(3,8,16,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,240,255,0.1);
+  }
+
+  .logo {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+    text-decoration: none;
+    position: relative;
+  }
+
+  .logo span { color: var(--neon-blue); }
+
+  .logo::after {
+    content: '▮';
+    color: var(--neon-green);
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+    font-size: 0.9rem;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--neon-blue);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+    box-shadow: var(--glow-sm);
+  }
+
+  .nav-links a:hover { color: var(--neon-blue); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    padding: 0.55rem 1.4rem;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue) !important;
+    border-radius: 2px;
+    font-weight: 700 !important;
+    letter-spacing: 0.15em;
+    transition: all 0.25s !important;
+    background: transparent;
+  }
+
+  .nav-cta:hover {
+    background: rgba(0,240,255,0.08) !important;
+    box-shadow: var(--glow-blue) !important;
+    color: #fff !important;
+  }
+
+  .nav-cta::after { display: none !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--neon-blue);
+    transition: all 0.3s;
+  }
+
+  /* ===== SECTIONS ===== */
+  section { position: relative; z-index: 1; }
+
+  /* Hero */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4% 4rem;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid rgba(0,255,136,0.3);
+    border-radius: 2px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--neon-green);
+    background: rgba(0,255,136,0.05);
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,136,0.5); }
+    50% { box-shadow: 0 0 0 6px transparent; }
+  }
+
+  .hero-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title .line2 {
+    color: var(--neon-blue);
+    text-shadow: var(--glow-blue);
+    display: block;
+  }
+
+  .hero-title .line3 {
+    color: var(--neon-green);
+    text-shadow: var(--glow-green);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 1.5rem 0 2.5rem;
+    font-weight: 400;
+    max-width: 520px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 0.85rem 2rem;
+    background: var(--neon-blue);
+    color: #000;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+    box-shadow: var(--glow-blue);
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0,240,255,0.6), 0 0 60px rgba(0,240,255,0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    padding: 0.85rem 2rem;
+    background: transparent;
+    color: var(--neon-green);
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--neon-green);
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+  }
+
+  .btn-outline:hover {
+    background: rgba(0,255,136,0.08);
+    box-shadow: var(--glow-green);
+    transform: translateY(-2px);
+  }
+
+  /* Hero stats */
+  .hero-stats {
+    display: flex; gap: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--dark-border);
+  }
+
+  .stat-item {}
+  .stat-num {
+    font-family: 'Orbitron', monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--neon-blue);
+    text-shadow: var(--glow-blue);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+    font-weight: 600;
+  }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shield-container {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shield-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    animation: ring-spin linear infinite;
+  }
+
+  .shield-ring:nth-child(1) {
+    width: 340px; height: 340px;
+    border-color: rgba(0,240,255,0.15);
+    animation-duration: 20s;
+  }
+
+  .shield-ring:nth-child(2) {
+    width: 260px; height: 260px;
+    border-color: rgba(0,255,136,0.15);
+    animation-duration: 15s;
+    animation-direction: reverse;
+    border-style: dashed;
+  }
+
+  .shield-ring:nth-child(3) {
+    width: 180px; height: 180px;
+    border-color: rgba(0,240,255,0.25);
+    animation-duration: 10s;
+  }
+
+  @keyframes ring-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .shield-core {
+    position: relative;
+    width: 120px; height: 120px;
+    background: linear-gradient(135deg, rgba(0,240,255,0.1), rgba(0,255,136,0.05));
+    border: 2px solid var(--neon-blue);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--glow-blue), inset 0 0 30px rgba(0,240,255,0.1);
+    animation: pulse-core 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-core {
+    0%, 100% { box-shadow: var(--glow-blue), inset 0 0 30px rgba(0,240,255,0.1); }
+    50% { box-shadow: 0 0 40px rgba(0,240,255,0.6), 0 0 80px rgba(0,240,255,0.2), inset 0 0 40px rgba(0,240,255,0.15); }
+  }
+
+  .shield-svg {
+    width: 60px; height: 60px;
+    fill: none;
+    stroke: var(--neon-blue);
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 8px rgba(0,240,255,0.6));
+  }
+
+  /* Orbit dots */
+  .orbit-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--neon-blue);
+    box-shadow: 0 0 12px var(--neon-blue);
+  }
+
+  .orbit-dot:nth-child(4) { top: 4px; left: 50%; transform: translateX(-50%); }
+  .orbit-dot:nth-child(5) { bottom: 4px; left: 50%; transform: translateX(-50%); background: var(--neon-green); box-shadow: 0 0 12px var(--neon-green); }
+  .orbit-dot:nth-child(6) { left: 4px; top: 50%; transform: translateY(-50%); }
+  .orbit-dot:nth-child(7) { right: 4px; top: 50%; transform: translateY(-50%); background: var(--neon-purple); box-shadow: 0 0 12px var(--neon-purple); }
+
+  /* Terminal box */
+  .terminal-box {
+    position: absolute;
+    bottom: -10px; right: -30px;
+    background: var(--dark-card);
+    border: 1px solid rgba(0,240,255,0.2);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--neon-green);
+    width: 200px;
+    box-shadow: var(--glow-sm);
+  }
+
+  .terminal-box .t-title {
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  .terminal-line { display: flex; gap: 0.5rem; margin-top: 0.3rem; }
+  .terminal-line .prompt { color: var(--neon-blue); }
+
+  /* ===== SECTION COMMON ===== */
+  .section-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 4%;
+  }
+
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--neon-blue);
+    box-shadow: var(--glow-sm);
+  }
+
+  .section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-title span { color: var(--neon-blue); }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 580px;
+  }
+
+  /* ===== SERVICES ===== */
+  #services { background: var(--dark-surface); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .service-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(0,240,255,0.04) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(0,240,255,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 40px rgba(0,240,255,0.1);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover::after { opacity: 1; }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: rgba(0,240,255,0.07);
+    border: 1px solid rgba(0,240,255,0.15);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-icon svg {
+    width: 26px; height: 26px;
+    stroke: var(--neon-blue);
+    fill: none;
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 4px rgba(0,240,255,0.5));
+  }
+
+  .service-icon.green svg { stroke: var(--neon-green); filter: drop-shadow(0 0 4px rgba(0,255,136,0.5)); }
+  .service-icon.green { background: rgba(0,255,136,0.07); border-color: rgba(0,255,136,0.15); }
+
+  .service-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .service-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .service-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.25rem 0.7rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--neon-blue);
+    background: rgba(0,240,255,0.06);
+    border: 1px solid rgba(0,240,255,0.15);
+    border-radius: 2px;
+  }
+
+  /* ===== ABOUT ===== */
+  #about { }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-terminal {
+    background: var(--dark-card);
+    border: 1px solid rgba(0,240,255,0.15);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), var(--glow-sm);
+  }
+
+  .terminal-header {
+    background: rgba(0,240,255,0.05);
+    border-bottom: 1px solid rgba(0,240,255,0.1);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .t-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .t-dot.red { background: #ff5f56; }
+  .t-dot.yellow { background: #ffbd2e; }
+  .t-dot.green { background: #27c93f; }
+
+  .t-title-bar {
+    flex: 1;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .terminal-body {
+    padding: 1.25rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.9;
+  }
+
+  .t-cmd { color: var(--neon-blue); }
+  .t-output { color: var(--neon-green); padding-left: 1rem; }
+  .t-warn { color: #ffbd2e; padding-left: 1rem; }
+  .t-comment { color: var(--text-muted); }
+
+  .about-text {}
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .why-item {
+    padding: 1.25rem;
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+
+  .why-item:hover { border-color: rgba(0,240,255,0.2); }
+
+  .why-icon {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    color: var(--neon-blue);
+    margin-bottom: 0.5rem;
+  }
+
+  .why-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    color: var(--text-primary);
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .why-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+
+  /* ===== CASE STUDIES ===== */
+  #cases { background: var(--dark-surface); }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .case-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .case-card:hover {
+    border-color: rgba(0,255,136,0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 40px rgba(0,255,136,0.08);
+  }
+
+  .case-header {
+    padding: 1.25rem 1.5rem;
+    background: rgba(0,255,136,0.04);
+    border-bottom: 1px solid rgba(0,255,136,0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .case-status {
+    padding: 0.25rem 0.75rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .case-status.recovered {
+    background: rgba(0,255,136,0.1);
+    color: var(--neon-green);
+    border: 1px solid rgba(0,255,136,0.25);
+  }
+
+  .case-status.secured {
+    background: rgba(0,240,255,0.1);
+    color: var(--neon-blue);
+    border: 1px solid rgba(0,240,255,0.25);
+  }
+
+  .case-body { padding: 1.5rem; }
+
+  .case-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .case-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .case-meta {
+    display: flex; gap: 1.5rem;
+  }
+
+  .case-metric .label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .case-metric .value {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--neon-green);
+    margin-top: 0.2rem;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials-wrap {
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonials-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s ease;
+  }
+
+  .testimonial-card {
+    min-width: calc(33.333% - 1rem);
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 6px;
+    padding: 1.75rem;
+    flex-shrink: 0;
+  }
+
+  .testimonial-stars {
+    color: var(--neon-blue);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-author {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0,240,255,0.3), rgba(0,255,136,0.15));
+    border: 1px solid rgba(0,240,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--neon-blue);
+  }
+
+  .author-info .name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+  }
+
+  .author-info .location {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+  }
+
+  /* ===== BLOG ===== */
+  #blog {}
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .blog-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .blog-card:hover {
+    border-color: rgba(0,240,255,0.2);
+    transform: translateY(-3px);
+  }
+
+  .blog-img {
+    height: 160px;
+    background: var(--dark-surface);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-img-art {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,240,255,0.06) 0%, rgba(0,0,0,0) 50%, rgba(0,255,136,0.04) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .blog-img-icon {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2.5rem;
+    color: rgba(0,240,255,0.15);
+  }
+
+  .blog-tag {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    padding: 0.2rem 0.65rem;
+    background: rgba(3,8,16,0.8);
+    border: 1px solid rgba(0,240,255,0.2);
+    border-radius: 2px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--neon-blue);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .blog-body { padding: 1.25rem; }
+
+  .blog-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .blog-excerpt {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .blog-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  .read-more {
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    transition: text-shadow 0.2s;
+  }
+
+  .read-more:hover { text-shadow: var(--glow-sm); }
+
+  /* ===== CONTACT ===== */
+  #contact { background: var(--dark-surface); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info {}
+
+  .contact-method {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+
+  .contact-method:hover { border-color: rgba(0,240,255,0.2); }
+
+  .contact-method-icon {
+    width: 42px; height: 42px;
+    flex-shrink: 0;
+    background: rgba(0,240,255,0.07);
+    border: 1px solid rgba(0,240,255,0.15);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .contact-method-icon svg {
+    width: 20px; height: 20px;
+    stroke: var(--neon-blue);
+    fill: none;
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 3px rgba(0,240,255,0.4));
+  }
+
+  .contact-method-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  .contact-method-value {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--neon-blue);
+  }
+
+  .contact-form {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 6px;
+    padding: 2.5rem;
+  }
+
+  .form-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.75rem;
+    color: var(--text-primary);
+  }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-group label {
+    display: block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,240,255,0.15);
+    border-radius: 3px;
+    color: var(--text-primary);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 0 3px rgba(0,240,255,0.08);
+  }
+
+  .form-group select {
+    cursor: pointer;
+    color: var(--text-secondary);
+  }
+
+  .form-group select option { background: var(--dark-card); }
+  .form-group textarea { height: 130px; resize: vertical; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, var(--neon-blue), rgba(0,240,255,0.7));
+    color: #000;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: var(--glow-blue);
+    margin-top: 0.5rem;
+  }
+
+  .btn-submit:hover {
+    background: linear-gradient(90deg, #fff, var(--neon-blue));
+    box-shadow: 0 0 40px rgba(0,240,255,0.5);
+    transform: translateY(-1px);
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    padding: 5rem 4%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(0,240,255,0.02) 50%, var(--dark-bg) 100%);
+  }
+
+  .cta-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .cta-title span { color: var(--neon-blue); text-shadow: var(--glow-blue); }
+
+  .cta-sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--dark-border);
+    background: var(--dark-surface);
+    padding: 3.5rem 4% 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-brand {}
+
+  .footer-logo {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo span { color: var(--neon-blue); }
+
+  .footer-bio {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    max-width: 280px;
+  }
+
+  .social-links {
+    display: flex; gap: 0.75rem;
+  }
+
+  .social-link {
+    width: 38px; height: 38px;
+    border: 1px solid var(--dark-border);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+
+  .social-link:hover {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+    box-shadow: var(--glow-sm);
+  }
+
+  .footer-col {}
+
+  .footer-col-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-links { list-style: none; }
+
+  .footer-links li { margin-bottom: 0.65rem; }
+
+  .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .footer-links a::before {
+    content: '›';
+    color: var(--neon-blue);
+    font-size: 1rem;
+  }
+
+  .footer-links a:hover { color: var(--neon-blue); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--dark-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  /* ===== WHATSAPP BUTTON ===== */
+  .wa-btn {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    width: 58px; height: 58px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: all 0.25s;
+    text-decoration: none;
+  }
+
+  .wa-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37,211,102,0.6);
+  }
+
+  .wa-btn svg {
+    width: 30px; height: 30px;
+    fill: white;
+  }
+
+  .wa-pulse {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(37,211,102,0.4);
+    animation: wa-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes wa-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0; }
+  }
+
+  /* ===== DIVIDER ===== */
+  .hex-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    overflow: hidden;
+  }
+
+  .hex-divider::before,
+  .hex-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,240,255,0.15), transparent);
+  }
+
+  .hex-divider span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(0,240,255,0.3);
+    letter-spacing: 0.2em;
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+    .hero-sub { max-width: 100%; }
+    .hero-stats { justify-content: center; }
+    .hero-actions { justify-content: center; }
+    .hero-visual { display: none; }
+    .about-inner { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .why-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .testimonial-card { min-width: calc(90% - 0.75rem); }
+  }
+
+  @media (max-width: 600px) {
+    .section-wrap { padding: 4rem 5%; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+  }
+
+  /* Noise overlay */
+  .noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* Animated typing */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="logo">Cyber<span>Don's</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#cases">Portfolio</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact" class="nav-cta">Get Help</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">● SYSTEM ONLINE — PROTECTION ACTIVE</div>
+      <h1 class="hero-title">
+        Secure.
+        <span class="line2">Recover.</span>
+        <span class="line3">Protect.</span>
+      </h1>
+      <p class="hero-sub">Bangladesh's most trusted cyber security and social media recovery agency. We secure your digital world, recover hacked accounts, and build impenetrable online defenses.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get Help Now</a>
+        <a href="#services" class="btn-outline">Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Accounts Recovered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">99%</div>
+          <div class="stat-label">Success Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Support</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="shield-container">
+        <div class="shield-ring"></div>
+        <div class="shield-ring"></div>
+        <div class="shield-ring"></div>
+        <div class="orbit-dot"></div>
+        <div class="orbit-dot"></div>
+        <div class="orbit-dot"></div>
+        <div class="orbit-dot"></div>
+        <div class="shield-core">
+          <svg class="shield-svg" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="terminal-box">
+          <div class="t-title">// LIVE SCAN</div>
+          <div class="terminal-line"><span class="prompt">$</span> threat_scan --deep</div>
+          <div class="terminal-line"><span class="prompt">›</span> <span style="color:var(--neon-green)">0 threats found</span></div>
+          <div class="terminal-line"><span class="prompt">›</span> <span style="color:var(--neon-blue)">firewall: ACTIVE</span></div>
+          <div class="terminal-line"><span class="prompt">›</span> <span style="color:#ffbd2e">2FA: ENABLED</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hex-divider"><span>◆ — — ◆ — — ◆</span></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-wrap">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Core <span>Services</span></h2>
+    <p class="section-desc">From emergency account recovery to full-spectrum cyber defense — we have every digital threat covered.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z"/></svg>
+        </div>
+        <div class="service-title">Cyber Security Solutions</div>
+        <div class="service-desc">End-to-end protection of your digital infrastructure. Vulnerability assessment, penetration testing, and real-time threat monitoring tailored to your needs.</div>
+        <span class="service-tag">ENTERPRISE GRADE</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon green">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/><path d="M17 13l2 2 4-4"/></svg>
+        </div>
+        <div class="service-title">Facebook Account Recovery</div>
+        <div class="service-desc">Hacked, disabled, or locked out of your Facebook? Our recovery specialists restore access fast — personal and business pages included.</div>
+        <span class="service-tag" style="color:var(--neon-green);background:rgba(0,255,136,0.06);border-color:rgba(0,255,136,0.15)">HIGH PRIORITY</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="service-title">Account Protection Setup</div>
+        <div class="service-desc">Fortify all your social media and online accounts with advanced 2FA, security keys, login alerts, and custom security protocols.</div>
+        <span class="service-tag">PREVENTIVE</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon green">
+          <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
+        </div>
+        <div class="service-title">Ethical Hacking Services</div>
+        <div class="service-desc">Certified ethical hackers test your systems before malicious actors do. Red team assessments, social engineering tests, and detailed remediation reports.</div>
+        <span class="service-tag" style="color:var(--neon-green);background:rgba(0,255,136,0.06);border-color:rgba(0,255,136,0.15)">CERTIFIED</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5A7 7 0 1 1 3 10a7 7 0 0 1 15 0z"/></svg>
+        </div>
+        <div class="service-title">Digital Risk Analysis</div>
+        <div class="service-desc">Comprehensive scanning of your digital footprint to identify exposure risks, data leaks, and vulnerabilities before they become threats.</div>
+        <span class="service-tag">ANALYTICAL</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon green">
+          <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="service-title">Online Identity Protection</div>
+        <div class="service-desc">Protect your personal brand and digital identity from impersonation, doxxing, and unauthorized use. Ongoing monitoring and rapid response.</div>
+        <span class="service-tag" style="color:var(--neon-green);background:rgba(0,255,136,0.06);border-color:rgba(0,255,136,0.15)">24/7 MONITOR</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hex-divider"><span>◆ — — ◆ — — ◆</span></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="about-terminal">
+          <div class="terminal-header">
+            <div class="t-dot red"></div>
+            <div class="t-dot yellow"></div>
+            <div class="t-dot green"></div>
+            <div class="t-title-bar">cyberdons_system.sh</div>
+          </div>
+          <div class="terminal-body">
+            <div class="t-comment"># Cyber Don's Core System v3.1.0</div>
+            <br>
+            <div class="t-cmd">$ whoami</div>
+            <div class="t-output">cyberdons -- bangladesh_based_expert</div>
+            <br>
+            <div class="t-cmd">$ cat expertise.txt</div>
+            <div class="t-output">✓ Facebook Recovery Specialist</div>
+            <div class="t-output">✓ Certified Ethical Hacker (CEH)</div>
+            <div class="t-output">✓ Digital Forensics Expert</div>
+            <div class="t-output">✓ Social Media Security Pro</div>
+            <br>
+            <div class="t-cmd">$ stats --show</div>
+            <div class="t-output">accounts_recovered: 500+</div>
+            <div class="t-output">clients_served: 1200+</div>
+            <div class="t-output">success_rate: 99.2%</div>
+            <div class="t-output">response_time: &lt;2hrs</div>
+            <br>
+            <div class="t-cmd">$ uptime</div>
+            <div class="t-output">24/7 — 365 days operational</div>
+            <br>
+            <div class="t-warn">⚡ System fully operational</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Bangladesh's <span>Cyber Elite</span></h2>
+        <p class="section-desc" style="margin-bottom:1rem">Cyber Don's was founded by a team of certified ethical hackers and digital security specialists with one mission: making the digital world safer for every Bangladeshi individual and business.</p>
+        <p class="section-desc">We combine deep technical expertise with lightning-fast response times. Whether your Facebook page was hacked overnight or your business data is at risk — we respond, recover, and reinforce.</p>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon">⚡</div>
+            <div class="why-title">Fast Response</div>
+            <div class="why-desc">Average response under 2 hours. Emergency cases handled immediately.</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🛡</div>
+            <div class="why-title">Verified Experts</div>
+            <div class="why-desc">Certified ethical hackers with real-world recovery experience.</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🔒</div>
+            <div class="why-title">100% Confidential</div>
+            <div class="why-desc">Your information is always protected. Complete privacy guaranteed.</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">✓</div>
+            <div class="why-title">Results Guaranteed</div>
+            <div class="why-desc">No recovery, no charge. We stand behind every case we take.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hex-divider"><span>◆ — — ◆ — — ◆</span></div>
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="section-wrap">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Recovery <span>Case Studies</span></h2>
+    <p class="section-desc">Real cases, real results. See how we've helped clients across Bangladesh recover and secure their digital assets.</p>
+
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-status recovered">✓ Recovered</span>
+          <span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--text-muted)">CASE #2024-FB-047</span>
+        </div>
+        <div class="case-body">
+          <div class="case-title">Business Facebook Page: 50K Followers</div>
+          <div class="case-desc">A Dhaka-based fashion brand lost admin access after a phishing attack. Their 50,000-follower page was compromised. We recovered full ownership in under 6 hours.</div>
+          <div class="case-meta">
+            <div class="case-metric">
+              <div class="label">Resolution Time</div>
+              <div class="value">5.5 hrs</div>
+            </div>
+            <div class="case-metric">
+              <div class="label">Followers Saved</div>
+              <div class="value">50K+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-status secured">● Secured</span>
+          <span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--text-muted)">CASE #2024-CS-112</span>
+        </div>
+        <div class="case-body">
+          <div class="case-title">E-Commerce Platform Security Audit</div>
+          <div class="case-desc">A growing Bangladeshi e-commerce startup had critical SQL injection vulnerabilities. Our ethical hack revealed 12 high-severity flaws — all patched within 48 hours.</div>
+          <div class="case-meta">
+            <div class="case-metric">
+              <div class="label">Vulnerabilities Fixed</div>
+              <div class="value" style="color:var(--neon-blue)">12</div>
+            </div>
+            <div class="case-metric">
+              <div class="label">Data Protected</div>
+              <div class="value" style="color:var(--neon-blue)">25K users</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <span class="case-status recovered">✓ Recovered</span>
+          <span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--text-muted)">CASE #2024-IG-089</span>
+        </div>
+        <div class="case-body">
+          <div class="case-title">Instagram Influencer Account: 120K</div>
+          <div class="case-desc">A popular content creator's account was stolen via SIM swap. Using our advanced recovery protocol and Meta escalation channels, we restored access in 8 hours.</div>
+          <div class="case-meta">
+            <div class="case-metric">
+              <div class="label">Resolution Time</div>
+              <div class="value">8 hrs</div>
+            </div>
+            <div class="case-metric">
+              <div class="label">Followers Saved</div>
+              <div class="value">120K+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div style="margin-top:4rem">
+      <div class="section-label">Client Reviews</div>
+      <h3 style="font-family:'Orbitron',monospace;font-size:1.4rem;font-weight:600;margin-bottom:0.5rem">What <span style="color:var(--neon-blue)">Clients Say</span></h3>
+    </div>
+
+    <div class="testimonials-wrap" style="margin-top:2rem">
+      <div class="testimonials-track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">"My Facebook business page with 3 years of content was hacked. Cyber Don's recovered it in 4 hours. Absolute lifesavers — professional and transparent throughout."</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">RK</div>
+            <div class="author-info">
+              <div class="name">Rahim Khan</div>
+              <div class="location">Dhaka, Bangladesh</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">"They found security holes in our system that we had no idea existed. The detailed report and quick fixes saved our company from a potential data breach."</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">SF</div>
+            <div class="author-info">
+              <div class="name">Sumaiya Farhan</div>
+              <div class="location">Chittagong, Bangladesh</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">"Recovered my Instagram and set up full security protection. I sleep better knowing my account is protected by Cyber Don's. Highly recommended service."</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">TH</div>
+            <div class="author-info">
+              <div class="name">Tanvir Hossain</div>
+              <div class="location">Sylhet, Bangladesh</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">"Fast, professional, and effective. They recovered my hacked account in just 3 hours and explained every step. The team is incredibly knowledgeable."</div>
+          <div class="testimonial-author">
+            <div class="author-avatar">NB</div>
+            <div class="author-info">
+              <div class="name">Nadia Begum</div>
+              <div class="location">Rajshahi, Bangladesh</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:0.75rem;margin-top:1.5rem;justify-content:center">
+        <button onclick="slideTestimonials(-1)" style="padding:0.5rem 1.25rem;background:transparent;border:1px solid rgba(0,240,255,0.2);color:var(--neon-blue);font-family:'Orbitron',monospace;font-size:0.75rem;cursor:pointer;border-radius:2px;transition:all 0.2s" onmouseover="this.style.background='rgba(0,240,255,0.08)'" onmouseout="this.style.background='transparent'">← PREV</button>
+        <button onclick="slideTestimonials(1)" style="padding:0.5rem 1.25rem;background:transparent;border:1px solid rgba(0,240,255,0.2);color:var(--neon-blue);font-family:'Orbitron',monospace;font-size:0.75rem;cursor:pointer;border-radius:2px;transition:all 0.2s" onmouseover="this.style.background='rgba(0,240,255,0.08)'" onmouseout="this.style.background='transparent'">NEXT →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hex-divider"><span>◆ — — ◆ — — ◆</span></div>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-wrap">
+    <div class="section-label">Security Blog</div>
+    <h2 class="section-title">Cyber <span>Intelligence</span></h2>
+    <p class="section-desc">Stay ahead of threats with expert tips, recovery guides, and the latest in cyber security news.</p>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-img">
+          <div class="blog-img-art"><div class="blog-img-icon">//FB</div></div>
+          <span class="blog-tag">Recovery Guide</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-title">How to Recover a Hacked Facebook Account in 2025</div>
+          <div class="blog-excerpt">Step-by-step guide to reclaiming your Facebook account after a hack — including Meta's official channels and when to call a professional.</div>
+          <div class="blog-meta">
+            <span>May 18, 2025</span>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <div class="blog-img-art"><div class="blog-img-icon">{//}</div></div>
+          <span class="blog-tag">Security Tips</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-title">10 Security Settings Everyone Should Enable Right Now</div>
+          <div class="blog-excerpt">From 2FA to login alerts — the essential security configurations that block 90% of account takeover attacks instantly.</div>
+          <div class="blog-meta">
+            <span>May 12, 2025</span>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img">
+          <div class="blog-img-art"><div class="blog-img-icon">⚠//</div></div>
+          <span class="blog-tag">Threat Alert</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-title">New Phishing Scam Targeting Bangladeshi Facebook Users</div>
+          <div class="blog-excerpt">A sophisticated phishing campaign is stealing Facebook credentials across Bangladesh. Here's what it looks like and how to protect yourself.</div>
+          <div class="blog-meta">
+            <span>May 5, 2025</span>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="section-label" style="justify-content:center">Emergency Support</div>
+  <h2 class="cta-title">Account Hacked? <span>Act Now.</span></h2>
+  <p class="cta-sub">Every minute matters. Our response team is online 24/7. Get your account back today.</p>
+  <div class="cta-actions">
+    <a href="#contact" class="btn-primary">Start Recovery Process</a>
+    <a href="https://wa.me/8801761587803" class="btn-outline">WhatsApp Us Now</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Contact <span>Cyber Don's</span></h2>
+        <p class="section-desc">Available around the clock. Reach us through any channel — we respond fast.</p>
+
+        <div class="contact-method">
+          <div class="contact-method-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-method-title">Email Support</div>
+            <div class="contact-method-value">voumiksharma@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-method-icon" style="background:rgba(37,211,102,0.08);border-color:rgba(37,211,102,0.2)">
+            <svg viewBox="0 0 24 24" style="stroke:#25d366"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-method-title">WhatsApp</div>
+            <div class="contact-method-value" style="color:#25d366">+880 1761-587803</div>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-method-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16z"/></svg>
+          </div>
+          <div>
+            <div class="contact-method-title">Phone / Hotline</div>
+            <div class="contact-method-value">+880 1777-546505</div>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-method-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div>
+            <div class="contact-method-title">Facebook Page</div>
+            <div class="contact-method-value">web.facebook.com/cyberdons</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-title">// Send Us a Message</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+880 ...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select>
+            <option value="" disabled selected>Select a service...</option>
+            <option>Facebook Account Recovery</option>
+            <option>Instagram Account Recovery</option>
+            <option>Other Social Media Recovery</option>
+            <option>Cyber Security Audit</option>
+            <option>Account Protection Setup</option>
+            <option>Ethical Hacking / Pen Test</option>
+            <option>Digital Risk Analysis</option>
+            <option>Online Identity Protection</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Describe Your Issue</label>
+          <textarea placeholder="Tell us what happened and how we can help..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">Send Message → Cyber Don's</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#home" class="footer-logo">Cyber<span>Don's</span></a>
+      <p class="footer-bio">Bangladesh's most trusted cyber security and social media account recovery agency. Secure. Recover. Protect.</p>
+      <div class="social-links">
+        <a href="https://web.facebook.com/cyberdons/" class="social-link">FB</a>
+        <a href="#" class="social-link">IG</a>
+        <a href="#" class="social-link">YT</a>
+        <a href="#" class="social-link">LI</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Cyber Security</a></li>
+        <li><a href="#services">FB Recovery</a></li>
+        <li><a href="#services">Account Protection</a></li>
+        <li><a href="#services">Ethical Hacking</a></li>
+        <li><a href="#services">Risk Analysis</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#cases">Portfolio</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="#">24/7 Live Chat</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Emergency Line</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2025 Cyber Don's. All rights reserved. Dhaka, Bangladesh.</span>
+    <span style="color:var(--neon-blue)">// SYSTEM SECURED — ALWAYS ON</span>
+  </div>
+</footer>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/8801761587803" class="wa-btn" target="_blank" rel="noopener">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Mobile nav
+  function toggleNav() {
+    const nl = document.querySelector('.nav-links');
+    if (nl.style.display === 'flex') {
+      nl.style.display = 'none';
+    } else {
+      nl.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(3,8,16,0.97);padding:2rem 4%;gap:1.5rem;z-index:999;border-bottom:1px solid rgba(0,240,255,0.1);backdrop-filter:blur(20px)';
+    }
+  }
+
+  // Testimonial slider
+  let slidePos = 0;
+  function slideTestimonials(dir) {
+    const track = document.getElementById('testimonialTrack');
+    const cards = track.querySelectorAll('.testimonial-card');
+    const visibleCount = window.innerWidth < 900 ? 1 : 3;
+    const max = cards.length - visibleCount;
+    slidePos = Math.max(0, Math.min(max, slidePos + dir));
+    const cardW = cards[0].offsetWidth + 24;
+    track.style.transform = `translateX(-${slidePos * cardW}px)`;
+  }
+
+  // Form submit
+  function submitForm() {
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = '✓ Message Sent! We\'ll respond within 2 hours.';
+    btn.style.background = 'linear-gradient(90deg, var(--neon-green), rgba(0,255,136,0.7))';
+    setTimeout(() => {
+      btn.textContent = 'Send Message → Cyber Don\'s';
+      btn.style.background = '';
+    }, 4000);
+  }
+
+  // Stat counter animation
+  function animateCounters() {
+    document.querySelectorAll('.stat-num').forEach(el => {
+      const raw = el.textContent.trim();
+      const num = parseInt(raw.replace(/[^0-9]/g, ''));
+      const suffix = raw.replace(/[0-9]/g, '');
+      if (!num) return;
+      let start = 0;
+      const step = num / 50;
+      const timer = setInterval(() => {
+        start = Math.min(start + step, num);
+        el.textContent = Math.round(start) + suffix;
+        if (start >= num) clearInterval(timer);
+      }, 30);
+    });
+  }
+
+  // IntersectionObserver for stats
+  const statsSection = document.querySelector('.hero-stats');
+  if (statsSection) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounters(); obs.disconnect(); } });
+    }, { threshold: 0.5 });
+    obs.observe(statsSection);
+  }
+
+  // Typing effect on terminal
+  const lines = document.querySelectorAll('.terminal-body > div');
+  lines.forEach((line, i) => {
+    line.style.opacity = '0';
+    setTimeout(() => { line.style.opacity = '1'; }, i * 200);
+  });
+</script>
+</body>
+</html>
